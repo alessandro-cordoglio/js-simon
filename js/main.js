@@ -41,7 +41,7 @@ function timeout(){
 //funzione core
 function SimonSays(){
     for (let i = 0; i < 5; i++) {
-        const numberchoice=Number(prompt("Inserisci i numeri che hai visto precedentemente"))
+        const numberchoice=Number(prompt("Inserisci i numeri che hai visto precedentemente(un numero per volta)"))
         if (RandArray.includes(numberchoice)) {
             score++
             UserArray.push(numberchoice)
@@ -61,5 +61,5 @@ function SimonSays(){
 RandomNumber(difficulty)
 CreateCards(cardNum)
 setTimeout(timeout, 30000)
-setTimeout(SimonSays, 3010016)
+setTimeout(SimonSays, 30100)
 
