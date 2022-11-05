@@ -27,9 +27,17 @@ function CreateCards(cardNum){
        container.append(card)
     }
 }
+//funzione x nascondere i numeri generati
+function timeout(){
+    const boxes= document.querySelectorAll(".card_style")
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].classList.add("hide")
+    }
+   
+}
 /* MAIN JS */
-
 RandomNumber(difficulty)
 CreateCards(cardNum)
+setTimeout(timeout, 5000)
 console.log(RandArray)
 
