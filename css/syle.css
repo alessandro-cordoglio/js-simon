@@ -1,0 +1,14 @@
+body{
+    height: 100vh;
+}
+
+.my_container{
+    max-width: 1100px;
+    margin: auto;
+    height: 100%;
+}
+
+.card_style{
+    width: calc((100%/5));
+    text-align: center;
+}
