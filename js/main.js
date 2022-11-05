@@ -9,8 +9,6 @@ let WrongNumb=[]
 const container= document.querySelector(".my_container")
 let difficulty= 100
 let cardNum= 5
-let score=0
-let wrong=0
 /* FUNCTIONS */
 function RandomNumber(difficulty){
     while(RandArray.length<5){
@@ -26,14 +24,14 @@ function RandomNumber(difficulty){
 function CreateCards(cardNum){
     for (let i = 0; i < cardNum ; i++) {
        const card= document.createElement("div")
-       card.classList.add("card_style")
+       card.classList.add("card_style", "show")
        card.innerHTML=RandArray[i]
        container.append(card)
     }
 }
 //funzione x nascondere i numeri generati
 function timeout(){
-    const boxes= document.querySelectorAll(".card_style")
+    const boxes= document.querySelectorAll(".show")
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].classList.add("hide")
     } 
@@ -43,23 +41,21 @@ function SimonSays(){
     for (let i = 0; i < 5; i++) {
         const numberchoice=Number(prompt("Inserisci i numeri che hai visto precedentemente(un numero per volta)"))
         if (RandArray.includes(numberchoice)) {
-            score++
             UserArray.push(numberchoice)
         }else{
-            wrong++
             WrongNumb.push(numberchoice)
         }
     }
-    if (score==5) {
+    if (UserArray.length==5) {
         alert(`Hai vinto, Hai indovinato tutti numeri: ${UserArray}`)
     }else{
-        alert(`Hai perso, hai indovinato ${5-wrong} numeri: ${UserArray} `)
+        alert(`Hai perso, hai indovinato ${UserArray.length} numeri/o: ${UserArray} `)
     }
 
 }
 /* MAIN JS */
 RandomNumber(difficulty)
 CreateCards(cardNum)
-setTimeout(timeout, 30000)
-setTimeout(SimonSays, 30100)
+setTimeout(timeout, 1000)
+setTimeout(SimonSays, 2000)
 
